@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Task1</string>
+
+    <string-array name="cats_name">
+
+        <item>"Барсик"</item>
+        <item>"Мурзик"</item>
+        <item>"Васька"</item>
+        <item>"Сенька"</item>
+
+
+    </string-array>
+</resources>
