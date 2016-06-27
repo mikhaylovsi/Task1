@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseHelper mDataBaseHelper;
     private SQLiteDatabase mdb;
     private Cursor mCursor;
+    private SimpleCursorAdapter mSCAdapter;
 
        @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
            mDataBaseHelper = new DatabaseHelper(this);
            mdb = mDataBaseHelper.getWritableDatabase();
 
-           ContentValues values = new ContentValues();
+          // ContentValues values = new ContentValues();
            // Задайте значения для каждого столбца
 //           values.put(DatabaseHelper.MESSAGE_TITTLE_COLUMN, "Test");
 //           values.put(DatabaseHelper.MESSAGE_BODY_COLUMN, "Test");
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 //                   null, null, null, null, null);
 
             mCursor = mdb.query(DatabaseHelper.DATABASE_TABLE,
-                   new String[]{DatabaseHelper.MESSAGE_TITTLE_COLUMN},
+                   new String[]{DatabaseHelper.ID_COLUMN, DatabaseHelper.MESSAGE_TITTLE_COLUMN},
                    null, null, null, null, null);
 
 
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 //                   new String[]{DatabaseHelper.MESSAGE_TITTLE_COLUMN, DatabaseHelper.MESSAGE_BODY_COLUMN},
 //                   new int[]{R.id.message_title, R.id.message_body}, 1);
 
-                      SimpleCursorAdapter mSCAdapter = new SimpleCursorAdapter(this, R.layout.item, mCursor,
+                       mSCAdapter = new SimpleCursorAdapter(this, R.layout.item, mCursor,
                    new String[]{DatabaseHelper.MESSAGE_TITTLE_COLUMN},
                    new int[]{R.id.message_title}, 0);
 
@@ -90,6 +91,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onClick(View view) {
+
+
+         ContentValues values = new ContentValues();
+       //  Задайте значения для каждого столбца
+           values.put(DatabaseHelper.MESSAGE_TITTLE_COLUMN, "Опа");
+           values.put(DatabaseHelper.MESSAGE_BODY_COLUMN, "Опапа");
+           values.put(DatabaseHelper.MESSAGE_DATE_COLUMN, 5);
+           // Вставляем данные в таблицу
+           mdb.insert(DatabaseHelper.DATABASE_TABLE, null, values);
 
 
     }

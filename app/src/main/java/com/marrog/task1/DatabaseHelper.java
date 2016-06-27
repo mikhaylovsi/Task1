@@ -11,7 +11,7 @@ import android.util.Log;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "mydatabase.db";
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
 
     public static final String DATABASE_TABLE = "messages";
 
@@ -47,7 +47,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         Log.w("SQLite", "Обновляемся с версии " + oldVersion + " на версию " + newVersion);
 
-        db.execSQL("DROP TABLE IF IT EXISTS " + DATABASE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
 
         onCreate(db);
 
