@@ -10,10 +10,10 @@
         android:text="Medium Text"
         android:id="@+id/message_title" />
 
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:textAppearance="?android:attr/textAppearanceSmall"-->
-        <!--android:text="Small Text"-->
-        <!--android:id="@+id/message_body" />-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/message_body" />
 </LinearLayout>

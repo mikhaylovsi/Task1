@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 //                   null, null, null, null, null);
 
             mCursor = mdb.query(DatabaseHelper.DATABASE_TABLE,
-                   new String[]{DatabaseHelper.ID_COLUMN, DatabaseHelper.MESSAGE_TITTLE_COLUMN},
+                   new String[]{DatabaseHelper.ID_COLUMN, DatabaseHelper.MESSAGE_TITTLE_COLUMN, DatabaseHelper.MESSAGE_BODY_COLUMN},
                    null, null, null, null, null);
 
 
@@ -74,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
 //                   new int[]{R.id.message_title, R.id.message_body}, 1);
 
                        mSCAdapter = new SimpleCursorAdapter(this, R.layout.item, mCursor,
-                   new String[]{DatabaseHelper.MESSAGE_TITTLE_COLUMN},
-                   new int[]{R.id.message_title}, 0);
+                   new String[]{DatabaseHelper.MESSAGE_TITTLE_COLUMN, DatabaseHelper.MESSAGE_BODY_COLUMN},
+                   new int[]{R.id.message_title, R.id.message_body}, 0);
 
            ListView listView = (ListView)findViewById(R.id.listView);
 
@@ -84,11 +84,6 @@ public class MainActivity extends AppCompatActivity {
 
 
        }
-
-
-
-
-
 
     public void onClick(View view) {
 
